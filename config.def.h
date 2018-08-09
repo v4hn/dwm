@@ -2,7 +2,8 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"Fixed:pixelsize=13"
+//	"Fixed:pixelsize=20"
+ "SourceCodePro-Regular:pixelsize=20:antialias=true:autohint=true"
 };
 static const char dmenufont[]       = "Fixed:pixelsize=13";
 static const char normbordercolor[] = "#444444";
