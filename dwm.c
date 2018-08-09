@@ -813,16 +813,15 @@ drawbar(Monitor *m)
 		drw_text(drw, x, 0, w, bh, posbuf, 0);
 		xx = x + w;
 	}
-	if (m == selmon) { /* status is only drawn on selected monitor */
-		w = TEXTW(stext);
-		x = m->ww - w;
-		if (x < xx) {
-			x = xx;
-			w = m->ww - xx;
-		}
-		drw_text(drw, x, 0, w, bh, stext, 0);
-	} else
-		x = m->ww;
+
+	w = TEXTW(stext);
+	x = m->ww - w;
+	if (x < xx) {
+		x = xx;
+		w = m->ww - xx;
+	}
+	drw_text(drw, x, 0, w, bh, stext, 0);
+
 	if ((w = x - xx) > bh) {
 		x = xx;
 		if (m->sel) {
@@ -1350,8 +1349,7 @@ propertynotify(XEvent *e)
 		}
 		if (ev->atom == XA_WM_NAME || ev->atom == netatom[NetWMName]) {
 			updatetitle(c);
-			if (c == c->mon->sel)
-				drawbar(c->mon);
+			drawbars();
 		}
 		if (ev->atom == netatom[NetWMWindowType])
 			updatewindowtype(c);
@@ -2113,7 +2111,7 @@ updatestatus(void)
 {
 	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
 		strcpy(stext, "dwm-"VERSION);
-	drawbar(selmon);
+	drawbars();
 }
 
 void
