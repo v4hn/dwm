@@ -7,10 +7,10 @@ grid(Monitor *m) {
 		n++;
 
 	/* grid dimensions */
-	for(rows = 0; rows <= n/2; rows++)
-		if(rows*rows >= n)
+	for(cols = 0; cols <= n/2; cols++)
+		if(cols*cols >= n)
 			break;
-	cols = (rows && (rows - 1) * rows >= n) ? rows - 1 : rows;
+	rows = (cols && (cols - 1) * cols >= n) ? cols - 1 : cols;
 
 	/* window geoms (cell height/width) */
 	ch = m->wh / (rows ? rows : 1);
