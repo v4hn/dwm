@@ -2,8 +2,8 @@
 
 /* appearance */
 static const char *fonts[] = {
-//	"Fixed:pixelsize=20"
- "SourceCodePro-Regular:pixelsize=20:antialias=true:autohint=true"
+ "SourceCodePro-Regular:pixelsize=20:antialias=true:autohint=true",
+// "Noto Emoji:style=Regular" // triggers Xft segfaults
 };
 static const char dmenufont[]       = "Fixed:pixelsize=13";
 static const char normbordercolor[] = "#444444";
