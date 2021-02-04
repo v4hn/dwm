@@ -70,6 +70,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-b", "-f", "-m", dmenumon, "-fn"
 static const char *termcmd[]  = { "st", NULL };
 static const char *term2cmd[]  = { "urxvt", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
+static const char *keyboard_lockcmd[]  = { "slock-noblank", NULL };
 static const char *layout_deutsch[] = { "deutsch", NULL };
 static const char *layout_english[] = { "english", NULL };
 
@@ -80,6 +81,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = term2cmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = lockcmd } },
+	{ MODKEY,                       XK_grave,      spawn,          {.v = keyboard_lockcmd } },
 	{ MODKEY,                       XK_Escape, togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
