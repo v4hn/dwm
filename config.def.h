@@ -81,6 +81,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = term2cmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = lockcmd } },
 	{ MODKEY,                       XK_grave,  spawn,          {.v = keyboard_lockcmd } },
+	{ MODKEY,                       XK_F1,     locktagsfor,    {.ui = 300 } },
 	{ MODKEY,                       XK_Escape, togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
