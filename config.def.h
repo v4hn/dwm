@@ -77,11 +77,10 @@ static const char *layout_english[] = { "english", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,                            XK_Menu,   spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_F1,     spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = term2cmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = lockcmd } },
-	{ MODKEY,                       XK_grave,      spawn,          {.v = keyboard_lockcmd } },
+	{ MODKEY,                       XK_grave,  spawn,          {.v = keyboard_lockcmd } },
 	{ MODKEY,                       XK_Escape, togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
