@@ -2009,6 +2009,7 @@ updategeom(void)
 		nn = j;
 		if (n <= nn) {
 			for (i = 0; i < (nn - n); i++) { /* new monitors available */
+				// TODO(v4hn): sort monitors by X/Y origin coordinate
 				for (m = mons; m && m->next; m = m->next);
 				if (m)
 					m->next = createmon();
