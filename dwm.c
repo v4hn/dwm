@@ -1750,6 +1750,33 @@ sigchld(int unused)
 }
 
 void
+sortmons()
+{
+	// bubble sort for western reading direction
+	Monitor *dummy, *m, *nm;
+	Monitor** pmon;
+	char sorted;
+
+	do {
+		sorted = 1;
+		dummy = mons;
+		pmon = &dummy;
+		for(m = mons; m && m->next; m = m->next, pmon= &(*pmon)->next)
+		{
+			nm = m->next;
+			if(m->wx > nm->wx || (m->wx == nm->wx && m->wy > nm->wy))
+			{
+				m->next = nm->next;
+				nm->next = m;
+				*pmon= nm;
+				sorted= 0;
+			}
+		}
+		mons = dummy;
+	} while (!sorted);
+}
+
+void
 spawn(const Arg *arg)
 {
 	if (arg->v == dmenucmd)
@@ -2047,6 +2074,7 @@ updategeom(void)
 				cleanupmon(m);
 			}
 		}
+		sortmons();
 		free(unique);
 	} else
 #endif /* XINERAMA */
